@@ -26,7 +26,8 @@ RUN apt-get update \
 		fonts-texgyre \
 	&& rm -rf /var/lib/apt/lists/*
 
-RUN apt-get update \
+RUN add-apt-repository ppa:openjdk-r/ppa \
+  && apt-get update \
   && apt-get install --yes \
     openjdk-8-jdk \
     iproute2 \
