@@ -26,6 +26,12 @@ RUN apt-get update \
 		ca-certificates \
 		fonts-texgyre \
 	&& rm -rf /var/lib/apt/lists/*
+	
+RUN apt-get update \
+  && apt-get install libcurl4-openssl-dev -t unstable 
+  
+RUN apt-get update \
+  && apt-get install git-all -t unstable
 
 RUN apt-get update \
   && apt-get install --yes software-properties-common \
