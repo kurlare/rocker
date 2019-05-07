@@ -27,11 +27,11 @@ RUN apt-get update \
 		fonts-texgyre \
 	&& rm -rf /var/lib/apt/lists/*
 	
-RUN apt-get update \
-  && apt-get install libcurl4-openssl-dev -t unstable 
-  
-RUN apt-get update \
-  && apt-get install git-all -t unstable
+# install git and slim down image
+RUN apt-get -y update && apt-get -y install git && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/man/?? /usr/share/man/??_*
+
+# run a CMD to show git is installed
+CMD git help
 
 RUN apt-get update \
   && apt-get install --yes software-properties-common \
