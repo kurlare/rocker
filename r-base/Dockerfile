@@ -73,4 +73,4 @@ RUN apt-get update \
 # hwriterPlus is used by Databricks to display output in notebook cells
 # Rserve allows Spark to communicate with a local R process to run R code
 RUN R -e "install.packages('hwriterPlus', repos='https://mran.revolutionanalytics.com/snapshot/2017-02-26')" \
- && R -e "install.packages('Rserve')"
+ && R -e "install.packages('Rserve', 'Rserve_1.8-6.tgz', 'http://www.rforge.net/')"
