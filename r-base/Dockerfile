@@ -33,7 +33,6 @@ RUN mkdir -p /usr/share/man/man1 \
 RUN apt-get update \
   && apt-get install --yes software-properties-common \
   && apt-get install --yes \
-    openjdk-8-jdk \
     iproute2 \
     bash \
     sudo \
