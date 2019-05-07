@@ -1,6 +1,6 @@
 ## Emacs, make this -*- mode: sh; -*-
 
-FROM debian:testing
+FROM debian:stretch
 
 LABEL org.label-schema.license="GPL-2.0" \
       org.label-schema.vcs-url="https://github.com/rocker-org/r-base" \
@@ -25,14 +25,11 @@ RUN apt-get update \
 		ca-certificates \
 		fonts-texgyre \
 	&& rm -rf /var/lib/apt/lists/*
-	
-RUN mkdir -p /usr/share/man/man1 \
-  && apt-get update -y \
-  && apt-get install -y openjdk-8-jdk
 
 RUN apt-get update \
   && apt-get install --yes software-properties-common \
   && apt-get install --yes \
+    openjdk-8-jdk \
     iproute2 \
     bash \
     sudo \
