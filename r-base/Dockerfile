@@ -27,7 +27,7 @@ RUN apt-get update \
 	&& rm -rf /var/lib/apt/lists/*
 	
 RUN mkdir -p /usr/share/man/man1 \
-  && apt-get update -y && \
+  && apt-get update -y \
   && apt-get install -y openjdk-8-jdk
 
 RUN apt-get update \
