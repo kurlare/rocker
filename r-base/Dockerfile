@@ -26,6 +26,18 @@ RUN apt-get update \
 		fonts-texgyre \
 	&& rm -rf /var/lib/apt/lists/*
 
+RUN apt-get update \
+  && apt-get install --yes \
+    openjdk-8-jdk \
+    iproute2 \
+    bash \
+    sudo \
+    coreutils \
+    procps \
+  && /var/lib/dpkg/info/ca-certificates-java.postinst configure \
+  && apt-get clean \
+  && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
 ## Configure default locale, see https://github.com/rocker-org/rocker/issues/19
 RUN echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen \
 	&& locale-gen en_US.utf8 \
