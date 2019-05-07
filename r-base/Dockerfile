@@ -25,10 +25,13 @@ RUN apt-get update \
 		ca-certificates \
 		fonts-texgyre \
 	&& rm -rf /var/lib/apt/lists/*
+	
+RUN mkdir -p /usr/share/man/man1 \
+  && apt-get update -y && \
+  && apt-get install -y openjdk-8-jdk
 
 RUN apt-get update \
   && apt-get install --yes software-properties-common \
-  && add-apt-repository ppa:openjdk-r/ppa \
   && apt-get install --yes \
     openjdk-8-jdk \
     iproute2 \
